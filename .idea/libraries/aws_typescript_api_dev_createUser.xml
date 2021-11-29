@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="aws-typescript-api-dev-createUser">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/.serverless/aws-typescript-api-dev-createUser.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

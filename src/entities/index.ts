@@ -1,0 +1,1 @@
+export { IAccount } from './IAccount'
