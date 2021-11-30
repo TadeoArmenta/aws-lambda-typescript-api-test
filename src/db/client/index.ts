@@ -1,16 +1,12 @@
-//import util from 'util';
+import util from 'util';
 import mongoose, {ClientSession, Mongoose} from 'mongoose';
 import {LambdaLog} from 'lambda-log';
 
 let cachedDB: Mongoose | null = null;
 const logger = new LambdaLog();
 const LOGGER_PREFIX = 'MongoDB Connector v1';
-// const uriString =
-//     process.env.NODE_ENV === 'production'
-//         ? util.format('mongodb+srv://%s:%s@%s', process.env.MONGO_USER, process.env.MONGO_PASS, process.env.MONGO_IP)
-//         : 'mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false';
-const uriString = 'mongodb+srv://apiRoot:BpTNKCgFmhYcSfnm@cluster0.hkbeh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
-export default class NewMongoConnector {
+const uriString = util.format('mongodb+srv://%s:%s@%s%s%s', process.env.DB_USERNAME, process.env.DB_PASSWORD, process.env.DB_HOST, process.env.DB, '?retryWrites=true&w=majority')
+export default class MongooseConnector {
   public static async connectToDatabase(): Promise<void> {
     logger.info(`${LOGGER_PREFIX} - Connect function invoked`);
 

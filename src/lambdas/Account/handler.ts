@@ -1,4 +1,4 @@
-import NewMongoConnector from '@db/client';
+import MongooseConnector from '@db/client';
 import {AccountModel} from '@db/models/accountModel';
 import {IAccount} from '@entities/IAccount';
 import type {ValidatedEventAPIGatewayProxyEvent} from '@libs/apiGateway';
@@ -9,8 +9,8 @@ import {AccountSchema} from '@schemas/index';
 
 let dbSession;
 const createDbSession = async() => {
-    await NewMongoConnector.connectToDatabase();
-    return await NewMongoConnector.startSession();
+    await MongooseConnector.connectToDatabase();
+    return await MongooseConnector.startSession();
 }
 /**
  * create account handler
